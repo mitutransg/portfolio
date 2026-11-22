@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Mitu – Trần Minh Tùng: video trích dẫn, phim Kinh Thánh, nhân vật minh họa và dự án IT.">
+<meta property="og:title" content="Mitu Portfolio">
+<meta property="og:image" content="img/q-begood.jpg">
+<style>html{color-scheme:light}body{margin:0}img{max-width:100%}</style>
+<title>Mitu Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: magazine issue — giant masthead, then four "chuyên mục", each with its own grid rhythm (portrait row, mixed film strip, bento, plain text list). */
+:root{
+  --paper:#f7f7f5; --ink:#17171b; --muted:#5d5d66; --rule:#d9d9de; --red:#b3261e; --card:#ffffff;
+  --display:"Bricolage Grotesque", "Be Vietnam Pro", system-ui, sans-serif;
+  --body:"Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#121215; --ink:#ececf0; --muted:#9e9ea8; --rule:#2c2c33; --red:#ff6b5e; --card:#1b1b20; color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#121215; --ink:#ececf0; --muted:#9e9ea8; --rule:#2c2c33; --red:#ff6b5e; --card:#1b1b20; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.wrap{max-width:1180px;margin:0 auto}
+a{color:inherit}
+a:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+
+/* Masthead */
+.mast{padding-block:28px 40px;border-bottom:2px solid var(--ink)}
+.issue{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--rule);padding-bottom:10px}
+.logo{font-size:clamp(5.5rem, 22vw, 15rem);font-weight:800;line-height:.82;letter-spacing:-.05em;margin-top:24px}
+.logo em{font-style:normal;color:var(--red)}
+.who{display:grid;grid-template-columns:1fr 1.4fr;gap:32px;margin-top:28px;align-items:end}
+.who h2{font-size:clamp(1.4rem,3vw,2rem);font-weight:700}
+.who p{margin:0;font-size:1.15rem;max-width:58ch}
+.who p mark{background:none;color:var(--red);font-weight:600}
+.links{display:flex;gap:10px 24px;flex-wrap:wrap;margin-top:18px}
+.links a{font-family:var(--mono);font-size:14px;text-decoration:none;border-bottom:1px solid var(--red);padding-bottom:2px}
+.links a:hover{color:var(--red)}
+.toc{display:flex;gap:8px 28px;flex-wrap:wrap;margin-top:28px}
+.toc a{text-decoration:none;font-weight:500}
+.toc a span{font-family:var(--mono);color:var(--red);font-size:13px;margin-right:6px}
+.toc a:hover{color:var(--red)}
+
+/* Sections */
+section{padding-block:56px 16px}
+.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:24px;align-items:end;border-top:1px solid var(--rule);padding-top:18px;margin-bottom:28px}
+.head h2{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;letter-spacing:-.02em;line-height:1}
+.head p{margin:0;color:var(--muted);max-width:60ch}
+
+figure{margin:0;min-width:0}
+figure img{display:block;width:100%;height:auto;max-width:100%;background:var(--rule);transition:transform .4s ease}
+.frame{overflow:hidden;border-radius:2px}
+figure:hover img{transform:scale(1.03)}
+figcaption{margin-top:10px;display:grid;gap:2px}
+figcaption b{font-family:var(--display);font-size:1.1rem;font-weight:700;line-height:1.25}
+figcaption span{font-size:.9rem;color:var(--muted)}
+.meta{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--red)}
+figcaption .meta{color:var(--red)}
+
+/* 01 quotes: portrait row */
+.quotes{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:20px}
+.quotes figure:nth-child(even){margin-top:36px}
+.quotes .frame{aspect-ratio:2/3}
+.quotes img{height:100%;object-fit:cover}
+
+/* 02 films */
+.films{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px}
+.films .v{grid-column:span 3}
+.films .h{grid-column:span 6}
+.films .v .frame{aspect-ratio:9/16}
+.films .h .frame{aspect-ratio:16/9}
+.films img{height:100%;object-fit:cover}
+.films .white img{object-fit:contain;background:#fff}
+
+/* 03 bento */
+.bento{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:20px}
+.bento .w4{grid-column:span 4}.bento .w2{grid-column:span 2}.bento .w3{grid-column:span 3}
+.bento .frame{aspect-ratio:16/9}
+.bento img{height:100%;object-fit:cover}
+
+/* 04 IT */
+.it{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px}
+.proj{border-top:1px solid var(--rule);padding-block:22px;display:grid;grid-template-columns:2rem minmax(0,1fr);gap:4px 12px}
+.proj .n{font-family:var(--mono);color:var(--red);font-size:13px;padding-top:6px}
+.proj h3{font-size:1.35rem;font-weight:700;line-height:1.25}
+.proj p{grid-column:2;margin:6px 0 0;color:var(--muted);max-width:60ch}
+.chips{grid-column:2;display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chips i{font-style:normal;font-family:var(--mono);font-size:12px;border:1px solid var(--rule);padding:2px 8px;border-radius:99px}
+
+.tools{margin-top:40px;font-family:var(--mono);font-size:13px;color:var(--muted);line-height:2}
+.tools b{color:var(--ink);font-weight:500}
+footer{margin-top:64px;border-top:2px solid var(--ink);padding-block:22px 40px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{text-decoration:none}
+.foot-links{display:flex;gap:8px 20px;flex-wrap:wrap}
+footer a:hover{color:var(--red)}
+
+@media (max-width:900px){
+  .quotes{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .quotes figure:nth-child(even){margin-top:0}
+  .films .v{grid-column:span 6}.films .h{grid-column:span 12}
+  .bento .w4,.bento .w2,.bento .w3{grid-column:span 3}
+  .who,.head,.it{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:520px){
+  .quotes{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .bento .w4,.bento .w2,.bento .w3{grid-column:span 6}
+}
+@media (prefers-reduced-motion:reduce){figure img{transition:none}figure:hover img{transform:none}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="mast">
+    <div class="issue"><span class="label">Portfolio · Số 01</span><span class="label">Tháng 11 / 2026</span></div>
+    <h1 class="logo">Mitu<em>.</em></h1>
+    <div class="who">
+      <h2>Trần Minh Tùng</h2>
+      <div>
+        <p>Làm IT ở MIC, kể chuyện bằng tranh vẽ ngoài giờ. Dùng AI và code để <mark>tự động hóa công việc</mark>, và để kể những câu chuyện về <mark>lòng tốt và đức tin</mark>.</p>
+        <div class="links"><a href="https://www.youtube.com/@mitutran78" target="_blank" rel="noopener">YouTube ↗</a><a href="https://www.facebook.com/tran.mitu.2024" target="_blank" rel="noopener">Facebook ↗</a><a href="https://github.com/mitutransg" target="_blank" rel="noopener">GitHub ↗</a></div>
+      </div>
+    </div>
+    <nav class="toc" aria-label="Chuyên mục">
+      <a href="#trich-dan"><span>01</span>Video trích dẫn</a>
+      <a href="#phim"><span>02</span>Phim Kinh Thánh</a>
+      <a href="#nhan-vat"><span>03</span>Nhân vật &amp; minh họa</a>
+      <a href="#it-mic"><span>04</span>IT ở MIC</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="trich-dan" aria-labelledby="h-q">
+      <div class="head">
+        <h2 id="h-q">Video trích dẫn</h2>
+        <p>Một câu nói, vài cảnh vẽ, một giọng đọc. Khung dọc 2:3 cho mạng xã hội, chữ hiện theo nhịp lời đọc và chữ đỏ đánh dấu ý chính.</p>
+      </div>
+      <div class="quotes">
+        <figure><div class="frame"><img src="img/q-begood.jpg" alt="Cậu bé ngồi giữa nhóm bạn, tranh màu nước" loading="lazy" width="900" height="1350"></div><figcaption><span class="meta">Màu nước · 40s</span><b>Hãy đối xử tốt với chính mình</b></figcaption></figure>
+        <figure><div class="frame"><img src="img/q-chonhu.jpg" alt="Cậu bé cầm tách trà nhìn hai người rời đi" loading="lazy" width="900" height="1350"></div><figcaption><span class="meta">Màu nước · 41s</span><b>Cho đi thế nào</b></figcaption></figure>
+        <figure><div class="frame"><img src="img/q-danong.jpg" alt="Người đàn ông ngủ gục trên xe máy dưới gốc cây" loading="lazy" width="900" height="1350"></div><figcaption><span class="meta">Màu nước · 35s</span><b>Đàn ông</b></figcaption></figure>
+        <figure><div class="frame"><img src="img/q-chualanh.jpg" alt="Nhân vật đất sét ôm gấu bông" loading="lazy" width="900" height="1350"></div><figcaption><span class="meta">Đất sét · 17s</span><b>Chữa lành</b></figcaption></figure>
+        <figure><div class="frame"><img src="img/q-liveone.jpg" alt="Người que đứng trong mưa" loading="lazy" width="900" height="1350"></div><figcaption><span class="meta">Bút mực · 23s</span><b>Live one</b></figcaption></figure>
+        <figure><div class="frame"><img src="img/q-love.jpg" alt="Người que với quả bóng hình trái tim" loading="lazy" width="900" height="1350"></div><figcaption><span class="meta">Bút mực · 18s</span><b>Love deeply</b></figcaption></figure>
+      </div>
+    </section>
+
+    <section id="phim" aria-labelledby="h-f">
+      <div class="head">
+        <h2 id="h-f">Phim Kinh Thánh &amp; giáo lý</h2>
+        <p>Phim ngắn cho thiếu nhi và giới trẻ: dụ ngôn, giáo lý YOUCAT for Kids, chuyện thường ngày. Có lồng tiếng, nhạc và phụ đề tiếng Việt.</p>
+      </div>
+      <div class="films">
+        <figure class="v"><div class="frame"><img src="img/f-giakeu.jpg" alt="Ông Giakêu trèo lên cây sung" loading="lazy" width="900" height="1600"></div><figcaption><span class="meta">Lc 19 · 1:52</span><b>Giakêu</b><span>Người thu thuế trèo cây để được thấy Chúa.</span></figcaption></figure>
+        <figure class="v"><div class="frame"><img src="img/f-loinoi.jpg" alt="Người phụ nữ ngồi khóc bên cửa" loading="lazy" width="900" height="1600"></div><figcaption><span class="meta">Anidoodle · 0:48</span><b>Lời nói &amp; nước mắt</b><span>Một câu nói vô tình và những gì nó để lại.</span></figcaption></figure>
+        <figure class="v white"><div class="frame"><img src="img/f-chienlac.jpg" alt="Người chăn chiên bỏ 99 con đi tìm 1 con" loading="lazy" width="1000" height="1778"></div><figcaption><span class="meta">Dụ ngôn · Vẽ nét</span><b>99 con chiên lạc</b><span>Bỏ 99, tìm 1?</span></figcaption></figure>
+        <figure class="v"><div class="frame"><img src="img/f-youcat8.jpg" alt="Trẻ em ngồi nghe Lời Chúa trong nhà thờ" loading="lazy" width="900" height="506"></div><figcaption><span class="meta">YOUCAT · Câu 8 · 1:53</span><b>Lời Chúa trong phụng vụ</b><span>Khung ngang, bản có logo kênh.</span></figcaption></figure>
+        <figure class="h"><div class="frame"><img src="img/f-youcat13.jpg" alt="Trái tim cắt giấy giữa hoa" loading="lazy" width="900" height="506"></div><figcaption><span class="meta">YOUCAT for Kids · Câu 1–3 · 1:48</span><b>Vì sao Chúa dựng nên con?</b><span>Loạt giáo lý phong cách cắt giấy, mỗi tập một vài câu hỏi.</span></figcaption></figure>
+      </div>
+    </section>
+
+    <section id="nhan-vat" aria-labelledby="h-c">
+      <div class="head">
+        <h2 id="h-c">Nhân vật &amp; minh họa</h2>
+        <p>Bảng nhân vật nhiều góc nhìn để giữ nhân vật nhất quán qua các tập phim, cùng tranh minh họa và meme.</p>
+      </div>
+      <div class="bento">
+        <figure class="w4"><div class="frame"><img src="img/c-mose.jpg" alt="Bốn cảnh Môsê trên núi" loading="lazy" width="1000" height="566"></div><figcaption><span class="meta">Điện ảnh · 4 cảnh</span><b>Môsê</b></figcaption></figure>
+        <figure class="w2"><div class="frame"><img src="img/c-meme.jpg" alt="Meme manga ba người đàn ông trong quán nhậu" loading="lazy" width="1000" height="936"></div><figcaption><span class="meta">Manga · Meme</span><b>Quốc tế đàn ông</b></figcaption></figure>
+        <figure class="w2"><div class="frame"><img src="img/c-david.jpg" alt="Bảng nhân vật Đa-vít" loading="lazy" width="1000" height="558"></div><figcaption><span class="meta">Character sheet</span><b>Đa-vít</b></figcaption></figure>
+        <figure class="w2"><div class="frame"><img src="img/c-mitu.jpg" alt="Bảng nhân vật Mitu" loading="lazy" width="1000" height="558"></div><figcaption><span class="meta">Character sheet</span><b>Mitu</b></figcaption></figure>
+        <figure class="w2"><div class="frame"><img src="img/c-nguoique.jpg" alt="Sáu vị thánh vẽ người que" loading="lazy" width="1000" height="562"></div><figcaption><span class="meta">Vẽ bằng code · xoay 360°</span><b>Người que 6 thánh</b></figcaption></figure>
+        <figure class="w3"><div class="frame"><img src="img/c-silhouette.jpg" alt="Ba khung tranh bóng đen Kinh Thánh" loading="lazy" width="1000" height="562"></div><figcaption><span class="meta">Silhouette</span><b>Bóng hình Kinh Thánh</b></figcaption></figure>
+        <figure class="w3"><div class="frame"><img src="img/c-mitu2.jpg" alt="Bảng nhân vật Mitu trang phục hiện đại" loading="lazy" width="1000" height="558"></div><figcaption><span class="meta">Character sheet · hiện đại</span><b>Mitu đời thường</b></figcaption></figure>
+      </div>
+    </section>
+
+    <section id="it-mic" aria-labelledby="h-it">
+      <div class="head">
+        <h2 id="h-it">IT ở MIC</h2>
+        <p>Công cụ nội bộ tự viết để bớt việc tay cho nghiệp vụ bảo hiểm. Trang này chỉ mô tả bài toán và cách làm, không kèm dữ liệu nội bộ.</p>
+      </div>
+      <div class="it">
+        <article class="proj"><span class="n">A</span><h3>Helpdesk bằng AI Agent</h3><p>Trợ lý trả lời khách 24/7 qua live chat, Telegram và email. Agent chỉ trả lời từ kho chính sách nội bộ đã lập mục lục; không tìm thấy thì chuyển cho người.</p><div class="chips"><i>n8n</i><i>Obsidian</i><i>LLM grounding</i></div></article>
+        <article class="proj"><span class="n">B</span><h3>Báo cáo tái tục xe</h3><p>Thư viện Python lọc hợp đồng xe đến hạn theo chi nhánh và khoảng ngày, xuất thẳng ra file Excel nhiều sheet cho phòng kinh doanh.</p><div class="chips"><i>Python</i><i>SQL</i><i>Excel</i></div></article>
+        <article class="proj"><span class="n">C</span><h3>Duyệt bút toán hàng loạt</h3><p>Công cụ gọi API hệ thống BPM để duyệt nhiều bút toán một lần, lọc theo chi nhánh và số tiền, có chế độ chạy thử trước khi duyệt thật.</p><div class="chips"><i>REST API</i><i>Python</i><i>Dry-run</i></div></article>
+        <article class="proj"><span class="n">D</span><h3>Tự động Oracle Forms</h3><p>Bấm nút và nhập ô trên màn hình Oracle Forms theo tên, qua Java Access Bridge, để chạy báo cáo kế toán mà không cần thao tác tay.</p><div class="chips"><i>Java Access Bridge</i><i>Python</i></div></article>
+        <article class="proj"><span class="n">E</span><h3>Trình chiếu quản trị nhân sự</h3><p>Bài thuyết trình dựng bằng code, có chuyển động và bấm chuyển trang, xuất kèm bản PowerPoint.</p><div class="chips"><i>Remotion</i><i>React</i><i>PPTX</i></div></article>
+        <article class="proj"><span class="n">F</span><h3>Sơ đồ quy trình nghiệp vụ</h3><p>Từ văn bản quy trình, tự vẽ sơ đồ luồng công việc theo phòng ban để đưa vào tài liệu hướng dẫn.</p><div class="chips"><i>Diagram</i><i>Claude Code</i></div></article>
+      </div>
+    </section>
+
+    <p class="tools"><span class="label">Bộ đồ nghề</span><br><b>Hình &amp; video:</b> ComfyUI · Gemini · Google Flow · Real-ESRGAN &nbsp;/&nbsp; <b>Dựng:</b> Remotion · HyperFrames · ffmpeg &nbsp;/&nbsp; <b>Code:</b> Python · JavaScript · Claude Code</p>
+  </main>
+
+  <footer>
+    <span class="label">Mitu · Trần Minh Tùng</span>
+    <span class="foot-links"><a class="label" href="https://www.youtube.com/@mitutran78" target="_blank" rel="noopener">YouTube ↗</a><a class="label" href="https://www.facebook.com/tran.mitu.2024" target="_blank" rel="noopener">Facebook ↗</a><a class="label" href="https://github.com/mitutransg" target="_blank" rel="noopener">GitHub ↗</a></span>
+  </footer>
+</div>
+
+</body>
+</html>
